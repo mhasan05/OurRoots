@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     "trips",
     "journey",
     "budget_guide",
+    "audio_guides",
+    "content_library",
 ]
 
 MIDDLEWARE = [
