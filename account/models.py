@@ -14,6 +14,12 @@ class User(AbstractBaseUser,PermissionsMixin):
         ("provider", "Service Provider"),
     )
 
+    USER_TYPE = (
+        ("heritage_seeker", "HERITAGE_SEEKER"),
+        ("curious_traveller", "CURIOUS_TRAVELLER"),
+        ("cultural_explorar", "CULTURAL_EXPLORAR"),
+    )
+
     id = models.BigAutoField(primary_key=True)
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -23,6 +29,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
     heritage_connection = models.TextField(blank=True, null=True)
     source = models.CharField(max_length=100, blank=True, null=True)
+    user_type = models.CharField(max_length=20, choices=USER_TYPE, default="heritage_seeker")
 
     otp = models.CharField(max_length=6, blank=True, null=True)
     otp_expired_on = models.DateTimeField(blank=True, null=True)

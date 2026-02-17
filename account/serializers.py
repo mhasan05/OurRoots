@@ -41,6 +41,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
             "phone",
             "image",
             "role",
+            "user_type",
             "heritage_connection",
             "source",
             "created_on",
@@ -49,6 +50,7 @@ class UserDetailSerializer(serializers.ModelSerializer):
             "id",
             "email",
             "role",
+            "user_type",
             "created_on",
         )
 
