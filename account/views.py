@@ -10,8 +10,10 @@ from function.utils import generate_and_send_otp
 from .serializers import *
 from rest_framework.permissions import IsAuthenticated
 
+
 def get_tokens_for_user(user):
-    refresh = RefreshToken.for_user(user)
+    # refresh = RefreshToken.for_user(user)
+    refresh = CustomTokenObtainPairSerializer.get_token(user)
     return str(refresh.access_token)
 
 class SignupAPIView(APIView):

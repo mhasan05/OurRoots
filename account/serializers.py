@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import User
 from django.contrib.auth.hashers import make_password
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 class SignupSerializer(serializers.ModelSerializer):
     class Meta:
@@ -29,6 +30,8 @@ class VerifyEmailSerializer(serializers.Serializer):
 
 class ResendOTPSerializer(serializers.Serializer):
     email = serializers.EmailField()
+
+
 
 
 class UserDetailSerializer(serializers.ModelSerializer):
@@ -65,3 +68,16 @@ class UserUpdateSerializer(serializers.ModelSerializer):
             "heritage_connection",
             "source",
         )
+
+
+
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+        token['role'] = user.role
+        token['user_type'] = user.user_type
+        token['email'] = user.email
+        token['full_name'] = user.full_name
+        return token
