@@ -10,8 +10,9 @@ class User(AbstractBaseUser,PermissionsMixin):
         verbose_name_plural = "User"
     ROLE_CHOICES = (
         ("user", "User"),
-        ("admin", "Admin"),
+        ("driver", "Driver"),
         ("provider", "Service Provider"),
+        ("admin", "Admin"),
     )
 
     USER_TYPE = (
