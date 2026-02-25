@@ -21,6 +21,13 @@ class User(AbstractBaseUser,PermissionsMixin):
         ("cultural_explorar", "CULTURAL_EXPLORAR"),
     )
 
+    SUBSCRIPTION_TYPE = (
+        ("free", "FREE"),
+        ("community", "COMMUNITY"),
+        ("preparation", "PREPARATION"),
+        ("premium", "PREMIUM"),
+    )
+
     id = models.BigAutoField(primary_key=True)
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -31,6 +38,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     heritage_connection = models.TextField(blank=True, null=True)
     source = models.CharField(max_length=100, blank=True, null=True)
     user_type = models.CharField(max_length=20, choices=USER_TYPE, default="heritage_seeker")
+    subscription_type = models.CharField(max_length=20, choices=SUBSCRIPTION_TYPE, default="free")
 
     otp = models.CharField(max_length=6, blank=True, null=True)
     otp_expired_on = models.DateTimeField(blank=True, null=True)

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "budget_guide",
     "audio_guides",
     "content_library",
+    "subscription",
 ]
 
 MIDDLEWARE = [

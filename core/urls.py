@@ -13,4 +13,5 @@ urlpatterns = [
     path("api/budget/", include("budget_guide.urls")),
     path("api/audio/", include("audio_guides.urls")),
     path("api/content/", include("content_library.urls")),
+    path("api/subscriptions/", include("subscription.urls")),
 ]
