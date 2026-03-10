@@ -37,18 +37,7 @@ class ResendOTPSerializer(serializers.Serializer):
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = (
-            "id",
-            "full_name",
-            "email",
-            "phone",
-            "image",
-            "role",
-            "user_type",
-            "heritage_connection",
-            "source",
-            "created_on",
-        )
+        fields = '__all__'
         read_only_fields = (
             "id",
             "email",

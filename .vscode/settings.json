@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd d:\\\\Mehedi\\\\OurRoots-main\\\\OURROOTS-FASTAPI ; tasklist \\| findstr uvicorn$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
