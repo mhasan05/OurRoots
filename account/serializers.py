@@ -37,7 +37,7 @@ class ResendOTPSerializer(serializers.Serializer):
 class UserDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        exclude = ("password",)
         read_only_fields = (
             "id",
             "email",
